@@ -1,18 +1,17 @@
 class Solution {
     public int mySqrt(int n) {
-        // long arr[]= new int[x];
-        // long n=arr.length;//vese to ek array banane ki zarroraat hi nhi hai
-        long l=0;
-        long r=n; //no n/2 as 1 ka root 1 hota hai 
+        if(n==0) return 0;
+        int l=1;
+        int r=n; 
         while(l<=r){
-          long mid=(l+r)/2;
-          if((mid*mid) ==n)
-          return (int)mid;
-          else if((mid*mid) >n)
+          int mid=l+ (r-l)/2;
+          if(mid==n/mid)//mid*mid karne pr bahut bada number ja raha int ke bas ki nhi toh divide
+          return mid;
+          else if(mid> n/mid)
             r=mid-1;
           else
           l=mid+1;
         }
-        return (int)r;
+        return r;
     }
 }
